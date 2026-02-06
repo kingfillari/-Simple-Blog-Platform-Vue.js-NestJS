@@ -35,7 +35,7 @@ This project is beginner-friendly and perfect for learning **full-stack developm
 ## 📂 Project Structure
 
 
-
+```
 simple-blog-platform/
 │
 ├── backend/
