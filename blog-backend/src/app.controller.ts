@@ -1,22 +1,9 @@
-import { Controller, Get, Post, Delete, Body, Param } from '@nestjs/common';
-import { PostsService } from './posts.service';
+import { Controller, Get } from '@nestjs/common';
 
-@Controller('posts')
-export class PostsController {
-  constructor(private readonly postsService: PostsService) {}
-
+@Controller()
+export class AppController {
   @Get()
-  findAll() {
-    return this.postsService.findAll();
-  }
-
-  @Post()
-  create(@Body() post) {
-    return this.postsService.create(post);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.postsService.remove(Number(id));
+  getHello() {
+    return { message: 'Blog API is running 🚀' };
   }
 }

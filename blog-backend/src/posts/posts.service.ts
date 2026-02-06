@@ -20,6 +20,6 @@ export class PostsService {
   }
 
   remove(id: number): void {
-    this.posts = this.posts.filter(post => post.id !== id);
+    this.posts = this.posts.filter(p => p.id !== id);
   }
 }

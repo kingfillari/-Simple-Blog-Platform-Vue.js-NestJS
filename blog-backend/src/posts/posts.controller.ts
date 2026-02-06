@@ -1,22 +1,23 @@
-import { Controller, Get, Post, Delete, Body, Param } from '@nestjs/common';
-import { PostsService, Post as PostType } from './posts.service';
+import { Controller, Get, Post as HttpPost, Delete, Body, Param } from '@nestjs/common';
+import { PostsService } from './posts.service';
+import type { Post as BlogPost } from './posts.service';
 
 @Controller('posts')
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
   @Get()
-  getAllPosts(): PostType[] {
+  getAll(): BlogPost[] {
     return this.postsService.findAll();
   }
 
-  @Post()
-  createPost(@Body() body: PostType): PostType {
+  @HttpPost()
+  create(@Body() body: BlogPost): BlogPost {
     return this.postsService.create(body);
   }
 
   @Delete(':id')
-  deletePost(@Param('id') id: string): void {
+  delete(@Param('id') id: string): void {
     return this.postsService.remove(Number(id));
   }
 }
